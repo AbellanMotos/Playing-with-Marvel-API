@@ -7,6 +7,8 @@ import { BrowserRouter, Route, Switch} from 'react-router-dom'
 import Personajes from './components/personajes';
 import Personaje from './components/personaje';
 import Detallepj from './components/detallepj';
+import Comics from './components/comics';
+import DetalleComic from './components/detailcomic';
 
 const router = (
     <BrowserRouter>
@@ -14,6 +16,8 @@ const router = (
             <Route path="/" component={Personajes} exact />
             <Route path="/pj" component={Personaje} exact />
             <Route path="/pj/:id" component={Detallepj} exact />
+            <Route path="/comics" component={Comics} exact />
+            <Route path="/comic/:id" component={DetalleComic} />
         </Switch>
     </BrowserRouter>
 )
