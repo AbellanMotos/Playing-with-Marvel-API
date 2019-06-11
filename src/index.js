@@ -9,9 +9,12 @@ import Personaje from './components/personaje';
 import Detallepj from './components/detallepj';
 import Comics from './components/comics';
 import DetalleComic from './components/detailcomic';
+import Header from './components/navbar'
 
 const router = (
     <BrowserRouter>
+    <div>
+        <Header/>
         <Switch>
             <Route path="/" component={Personajes} exact />
             <Route path="/pj" component={Personaje} exact />
@@ -19,6 +22,7 @@ const router = (
             <Route path="/comics" component={Comics} exact />
             <Route path="/comic/:id" component={DetalleComic} />
         </Switch>
+        </div>
     </BrowserRouter>
 )
 

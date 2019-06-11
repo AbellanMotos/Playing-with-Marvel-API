@@ -8,26 +8,32 @@ class Detail extends Component{
     constructor(props){
         super(props)
         this.state = {
-            personaje: null
+            personaje: null,
+            
         }
         let personajeId = props.match.params.id
 
         axios.get(API_URL + personajeId + API_URL_KEY).then((resp) => {
             let pj = resp.data.data.results
+            console.log(pj);
             this.setState({
                 personaje: pj[0]
             })
-           console.log(pj);
+           
         })
     } 
 
     render(){
         if(this.state.personaje){
+                console.log(this.state.personaje);
+                console.log(this.state.personaje.comics);
         return <div>
-                <Link to="/">Volver a página principal</Link>
+                
                 <h1>{this.state.personaje.name}</h1>
                 {<img src={this.state.personaje.thumbnail.path + '.' + this.state.personaje.thumbnail.extension} />}
+                <p>{this.state.personaje.description} </p>
                 <h2>Apariciones en cómics</h2>
+                {this.state.personaje.comics.items.map((comic) => <p>{comic.name}</p>)}
                 </div>
     }else{
         return <div>
