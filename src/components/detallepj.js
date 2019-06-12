@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 import {API_URL, API_URL_KEY} from '../controller/configpj'
-
+import getId from '../controller/configid'
 
 class Detail extends Component{
     constructor(props){
@@ -23,7 +23,7 @@ class Detail extends Component{
         })
     } 
 
-    render(){
+       render(){
         if(this.state.personaje){
                 console.log(this.state.personaje);
                 console.log(this.state.personaje.comics);
@@ -31,9 +31,9 @@ class Detail extends Component{
                 
                 <h1>{this.state.personaje.name}</h1>
                 {<img src={this.state.personaje.thumbnail.path + '.' + this.state.personaje.thumbnail.extension} />}
-                <p>{this.state.personaje.description} </p>
+                {this.state.personaje.description ? <p>{this.state.personaje.description}</p> : <p>No description available</p>} 
                 <h2>Apariciones en cómics</h2>
-                {this.state.personaje.comics.items.map((comic) => <p>{comic.name}</p>)}
+                {this.state.personaje.comics.items.map((comic, i) => <div><Link to={"/comic/" + getId(comic.resourceURI)} key={i} >{comic.name} </Link>   </div>)}
                 </div>
     }else{
         return <div>
