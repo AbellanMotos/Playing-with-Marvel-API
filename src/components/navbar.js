@@ -1,12 +1,17 @@
 import React from 'react'
-import {Link, NavLink} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
+import style from '../styles/navstyle'
 
 const Header = () => {
-    return <div>
-        <h1>Marvel's API</h1>
-        <NavLink to="/">Heroes</NavLink>
-        <NavLink to="/comics">Cómics</NavLink>
+    return <header style={style.cabecera}>
+        <div>
+        <NavLink activeClassName="is-active"to="/" style={style.btnsty}>Héroes</NavLink>
         </div>
+        <h1>Marvel's API</h1>
+        <div>
+        <NavLink activeClassName="is-active"to="/comics" style={style.btnsty} exact>Cómics</NavLink>
+        </div>
+        </header>
         
 }
 

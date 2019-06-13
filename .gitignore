@@ -4,6 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
+/bower_components
+/styles/img
 
 # testing
 /coverage

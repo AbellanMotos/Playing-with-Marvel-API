@@ -14,14 +14,13 @@ import Header from './components/navbar'
 const router = (
     <BrowserRouter>
     <div>
-        <Header/>
+        <Header />
         <Switch>
             <Route path="/" component={Personajes} exact />
             <Route path="/pj" component={Personaje} exact />
             <Route path="/pj/:id" component={Detallepj} exact />
             <Route path="/comics" component={Comics} exact />
             <Route path="/comic/:id" component={DetalleComic} exact/>
-            
         </Switch>
         </div>
     </BrowserRouter>

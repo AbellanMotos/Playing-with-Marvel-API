@@ -3,6 +3,7 @@ import axios from 'axios'
 import {API_URL_DETAIL, API_URL_KEY} from '../controller/configcomics'
 import getId from '../controller/configid'
 import {Link} from 'react-router-dom'
+import style from '../styles/cardstyle'
 
 class Detail extends Component{
     constructor(props){
@@ -25,9 +26,11 @@ class Detail extends Component{
         if(this.state.comic){
                 console.log(this.state.comic);
             return <div>
+                <div style={style.card}>
                 <h1>{this.state.comic.title}</h1>
-                {<img src={this.state.comic.thumbnail.path + '.' + this.state.comic.thumbnail.extension} />}
+                {<img style={style.card_img}src={this.state.comic.thumbnail.path + '.' + this.state.comic.thumbnail.extension} />}
                 <p>{this.state.comic.description}</p>
+                </div>
                 <h1>Heroes activos</h1>
                 {this.state.comic.characters.items.map((characters, i) => <div><Link to={"/pj/" + getId(characters.resourceURI)} key={i} >{characters.name} </Link>   </div>)} 
             </div>
